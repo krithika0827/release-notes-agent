@@ -98,7 +98,7 @@ def generate_release_notes(repo_url: str, rev_range: str = "HEAD~15..HEAD") -> N
                     print(f"\n[done]    Session idle (stop_reason={stop_reason}).")
                     break
 
-    if stop_reason not in (None, "end_turn"):
+    if stop_reason != "end_turn":
         raise RuntimeError(f"Session {session.id} stopped early with stop_reason={stop_reason}")
 
     download_output_artifact(session.id)

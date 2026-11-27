@@ -26,7 +26,7 @@ def parse_agent_md(path: str = "agent.md") -> dict:
 def parse_environment_yaml(path: str = "environment.yaml") -> dict:
     raw = Path(path).read_text(encoding="utf-8")
     name_match = re.search(r"^name:\s*(.+)$", raw, re.MULTILINE)
-    hosts = re.findall(r'-\s*"?([^"\n]+)"?', raw)
+    hosts = re.findall(r'^\s+-\s*"?([^"\n]+)"?', raw, re.MULTILINE)
 
     return {
         "name": name_match.group(1).strip().strip('"') if name_match else "release-notes-sandbox",
