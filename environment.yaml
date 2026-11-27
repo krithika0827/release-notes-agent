@@ -1,0 +1,8 @@
+name: release-notes-sandbox
+config:
+  type: cloud
+  networking:
+    type: limited
+    allowed_hosts:
+      - "github.com"
+      - "*.githubusercontent.com"
